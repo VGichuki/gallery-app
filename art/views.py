@@ -3,4 +3,6 @@ from django.http import HttpResponse
 
 # Create your views here.
 def welcome(request):
-    return HttpResponse('Welcome to the Chessman Gallery')
+    #view function that renders the home page
+    return render(request, 'welcome.html')
+
