@@ -1,4 +1,5 @@
 {% load bootstrap3 %}
+{% load static%}
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +12,17 @@
   {% endif %}
 
   {% block styles %}
-    {% bootstap_css %}
+    {% bootstrap_css %}
   {% endblock %}
 
 </head>
 <body>
-  {% block content %}
-    <h1 class="text-center">ZGDX Gallery</h1>
-  {%endblock%}
+  {% include "navbar.html" %}
+
+{% block content %}
+
+{% endblock %}
+ 
 
 {% block scripts %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
