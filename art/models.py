@@ -16,6 +16,9 @@ class Category(models.Model):
     def save_category(self):
         self.save()
 
+    def delete_category(self):
+        self.delete()
+
 class Location(models.Model):
     '''
     class that defines the location of an image
