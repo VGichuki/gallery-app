@@ -65,6 +65,13 @@ class LocationTestCase(TestCase):
         locations = Location.objects.all()
         self.assertTrue(len(locations)<2)
 
+    def test_get_location(self):
+        self.lc1.save_location()
+        self.lc2.save_location()
+
+        found_location = Location.get_location('Nairobi')
+        self.assertEquals(len(found_location),1)
+
 # class ImageTestCase(TestCase):
 #     '''
 #     testcase for the functions under class image
