@@ -47,7 +47,7 @@ class Image(models.Model):
     '''
     class that contains the image details in the database
     '''
-    # image_url = models.ImageField(upload_to='images/', blank = True)
+    image_url = models.ImageField(upload_to='images/',blank=True)
     image_name = models.CharField(max_length=30)
     description = models.CharField(max_length=500)
     posted_on = models.DateField(auto_now_add=True)
