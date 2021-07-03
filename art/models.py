@@ -38,6 +38,11 @@ class Location(models.Model):
     def delete_location(self):
         self.delete()
 
+    @classmethod
+    def get_location(cls,location):
+        location = cls.objects.filter(name = location)
+        return location
+
 class Image(models.Model):
     '''
     class that contains the image details in the database
