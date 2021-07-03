@@ -58,7 +58,23 @@ class LocationTestCase(TestCase):
         locations = Location.objects.all()
         self.assertTrue(len(locations)<2)
 
-        
+# class ImageTestCase(TestCase):
+#     '''
+#     testcase for the functions under class image
+#     '''
+#     def setUp(self):
+#         #Categories
+#         self.cg1 = Category(name = 'oil painting')
+#         self.cg2 = Category(name = 'watercolor painiting')
+#         self.cg1.save_category()
+#         self.cg2.save_category()
+
+#         #Locations
+#         self.lc1 = Location(name = 'Nairobi')
+#         self.lc2 = Location(name = 'Nakuru')
+#         self.lc1.save_location()
+#         self.lc2.save_location()
+
 
     
 
