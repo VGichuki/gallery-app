@@ -38,6 +38,9 @@ class LocationTestCase(TestCase):
         self.lc1 = Location(name = 'Nairobi')
         self.lc2 = Location(name = 'Nakuru')
 
+    def tearDown(self):
+        Location.objects.all().delete()
+
     def test_instance(self):
         self.assertTrue(isinstance(self.lc1,Location))
         self.assertTrue(isinstance(self.lc2,Location))
@@ -47,6 +50,15 @@ class LocationTestCase(TestCase):
         self.lc2.save_location()
         locations = Location.objects.all()
         self.assertEquals(len(locations),2)
+
+    def test_delete(self):
+        self.lc1.save_location()
+        self.lc2.save_location()
+        self.lc1.delete_location()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations)<2)
+
+        
 
     
 
