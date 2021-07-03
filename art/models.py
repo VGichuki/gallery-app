@@ -1,6 +1,5 @@
 from django.db import models
 import datetime as dt
-
 from django.db.models.deletion import CASCADE
 
 # Create your models here.
