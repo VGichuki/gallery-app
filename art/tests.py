@@ -30,6 +30,13 @@ class CategoryTestCase(TestCase):
         categories = Category.objects.all()
         self.assertTrue(len(categories)<2)
 
+    def test_get_category(self):
+        self.cg1.save_category()
+        self.cg2.save_category()
+
+        found_category = Category.search_category('oil painting')
+        self.assertEquals(len(found_category),1)
+
 class LocationTestCase(TestCase):
     '''
     class that test the functions under class Location
