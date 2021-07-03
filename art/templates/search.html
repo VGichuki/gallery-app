@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">  
+      <div card="col-md-4">
+        {{block.super}}  
+        <div class="alert">
+          {% if images %}        
+            <h5 class="alert alert-success">Found {{images|length}} result related to <hr> {{message}}</h5>
+          {% else %}  
+            <h5 class="alert alert-danger">No results<hr> {{message}}</h5>
+          {% endif %}
+        </div>
+      </div> 
+
+{% endblock content %}
