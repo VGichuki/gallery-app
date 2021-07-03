@@ -18,6 +18,11 @@ class Category(models.Model):
     def delete_category(self):
         self.delete()
 
+    @classmethod
+    def search_category(cls, category):
+        category = cls.objects.filter(name = category)
+        return category
+
 class Location(models.Model):
     '''
     class that defines the location of an image
@@ -43,3 +48,5 @@ class Image(models.Model):
     posted_on = models.DateField(auto_now_add=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+
