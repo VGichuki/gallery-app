@@ -28,6 +28,9 @@ class Location(models.Model):
     def __str__(self):
         return self.name
 
+    def save_location(self):
+        self.save()
+
 class Image(models.Model):
     '''
     class that contains the image details in the database

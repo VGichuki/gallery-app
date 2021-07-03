@@ -29,4 +29,26 @@ class CategoryTestCase(TestCase):
         self.cg1.delete_category()
         categories = Category.objects.all()
         self.assertTrue(len(categories)<2)
+
+class LocationTestCase(TestCase):
+    '''
+    class that test the functions under class Location
+    '''
+    def setUp(self):
+        self.lc1 = Location(name = 'Nairobi')
+        self.lc2 = Location(name = 'Nakuru')
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.lc1,Location))
+        self.assertTrue(isinstance(self.lc2,Location))
+
+    def test_save_method(self):
+        self.lc1.save_location()
+        self.lc2.save_location()
+        locations = Location.objects.all()
+        self.assertEquals(len(locations),2)
+
+    
+
+
     
