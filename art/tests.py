@@ -118,5 +118,21 @@ class ImageTestCase(TestCase):
         savedimages = Image.objects.all()
         self.assertEquals(len(savedimages),1)
 
+    def test_get_image_by_id(self):
+        self.img1.save_image()
+        self.img2.save_image()
+        try:
+            found=Image.get_image_by_id(self.img1.id)
+        except ValueError:
+            raise AttributeError
+        self.assertEquals(len(found),1)
+
+    # def test_search(self):
+    #     self.img1.save_image()
+    #     self.img2.save_image()
+
+    #     search_term='Oil painting'
+    #     found_
+
 
     
