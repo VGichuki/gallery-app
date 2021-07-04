@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <h1 class="text-center">Category Section</h1>
+  <h2 class="text-center">{{title}} photos.</h2>
+  {{block.super}} 
+  <hr>      
+  <div class="row">            
+    <div class="col-m-4">
+      <div class="navCategory">
+        <h3>Location</h3>
+        <hr>        
+        <a class="btn btn-outline-info" href="/images/Nairobi"><span class="btn-text">Nairobi</span></a><br>
+        <a class="btn btn-outline-info" href="/images/Nakuru">Nakuru</a><br>
+        <a class="btn btn-outline-info" href="/images/Eldoret">Eldoret</a><br>
+        <a class="btn btn-outline-info" href="/images/Nyandarua">Nyandarua</a><br>
+        <a class="btn btn-outline-info" href="/images/Kiambu">Kiambu</a><br>
+        <a class="btn btn-outline-info" href="/images/Mombasa">Mombasa</a><br>
+        <a class="btn btn-outline-info" href="/images/Naivasha">Naivasha</a><br>
+      </div>
+    </div>
+    <div class="col-md-8">
+    {% if images %}      
+      {% for image in images %}      
+        <div class="card" style="width:600px">
+          <div class="row">
+            <div class="col-md-6">
+              <img onclick="onClick(this)" src="{{image.image_url.url}}" class="img254" id="myImg" style="width:250px;height:250px;" alt="<p> <b>Caption:</b> {{image.image_name}}.<br> <b>Description:</b> {{image.description}}<br> <b>Category:</b> {{image.category}}<br> <b>Location:</b> {{image.location}}<br> <b>Posted on:</b> {{image.posted_on}}</p>"><br>                              
+            </div>
+            <div class="col-md-6">
+              <div class="card-body">
+                <h2 class="card-title"><b>Name:</b> {{image.image_name}}</h2>
+                <p class="card-text"><b>Description:</b> {{image.description}}</p>
+                <div class="card-footer">
+                  <p><b>Category:</b> {{image.category}}</p>
+                  <p><b>Location:</b> {{image.location}}</p>
+                  <p><b>Posted On:</b> {{image.posted_on}}</p>
+                </div>                  
+              </div>
+            </div>
+          </div>
+        </div>
+    
+{% endblock content %}

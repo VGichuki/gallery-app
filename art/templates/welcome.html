@@ -2,4 +2,27 @@
 {% block content %}
 {{block.super}}
 <h1 class="text-center">Welcome to ZGDX Gallery</h1>
+<div class="container">
+  {% for image in images %}
+  <div class="row">
+      <div class="col-md-6 cold-md-6">
+          ​<div class="thumbnail">
+              <img src="{{image.image_url.url}}" class="img-fluid img-thumbnail" alt="..." style="width: 450px;">
+              <div class="card-body">
+              <p class="card-title"><b>Name:</b>{{image.image_name}}</b></p>
+              <p class="card-text"><b>Description:</b> {{image.description}}</p>
+              <p><b>Category:</b> {{image.category}}</p>
+              <p><b>Location:</b> {{image.location}}</p>
+              <p><b>Posted On:</b> {{image.posted_on}}</p>
+            
+            </div>
+      </div>
+      
+  </div>
+  {%endfor%}
+  </div>
+  </div>
+<!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <img src="{{image.image_url.url}}" class="img-responsive" alt="Image">
+  </div> -->
 {% endblock %}
