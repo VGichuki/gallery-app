@@ -36,4 +36,13 @@ def images_by_location(request, location_name):
 
   return render(request, 'images.html', {"images":images , "title": title})
 
+def images_by_category(request, category_name):
+  try:
+    found_category = Category.search_category(category_name)
+    images = Image.search_image(found_category)
+    title = category_name
 
+  except ObjectDoesNotExist:
+    raise Http404()
+
+  return render(request, 'category.html',{"images":images, "title":title})
