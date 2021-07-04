@@ -53,5 +53,34 @@ class Image(models.Model):
     posted_on = models.DateField(auto_now_add=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()
+
+    @classmethod
+    def get_image_by_id(cls, image_id):
+        found = cls.objects.filter(id=image_id)
+        return found
+
+    @classmethod
+    def search_image(cls,category):
+        images = cls.objects.filter(category__name__icontains=category).all()
+        return images
+    
+    @classmethod
+    def filter_by_location(cls,location):
+        images = Image.objects.filter(location=location).all()
+        return images.url
+
+    class Meta:
+        ordering = ['image_name']
+
+
+   
+
+
 
 
