@@ -7,7 +7,8 @@ from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
 def welcome(request):
     #view function that renders the home page
-    return render(request, 'welcome.html')
+    images = Image.objects.all()
+    return render(request, 'welcome.html', {"images": images})
 
 def search_results(request):
   if 'art' in request.GET and request.GET["art"]:
@@ -46,3 +47,4 @@ def images_by_category(request, category_name):
     raise Http404()
 
   return render(request, 'category.html',{"images":images, "title":title})
+
