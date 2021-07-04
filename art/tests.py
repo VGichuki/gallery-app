@@ -110,7 +110,13 @@ class ImageTestCase(TestCase):
 
         savedimages = Image.objects.all()
         self.assertEquals(len(savedimages),2)
+    def test_delete(self):
+        self.img1.save_image()
+        self.img2.save_image()
 
+        self.img1.delete_image()
+        savedimages = Image.objects.all()
+        self.assertEquals(len(savedimages),1)
 
 
     
