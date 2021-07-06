@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{{block.super}}
 <h1 class="text-center" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 55px; color: black;">Welcome to ZGDX Gallery</h1>
 <div class="container">
   <div class="card-columns">
@@ -25,8 +24,6 @@
             <p class="imgcate text-center">Category:{{image.category}}</p>
             <p class="imgloc text-center">Location:{{image.location}}</p>
             <p class="imgloc text-center">Posted on:{{image.posted_on}}</p>
-            
-
             </div>
             <div class="modal-footer">
                 <input class="form-control input-lg" type="text"

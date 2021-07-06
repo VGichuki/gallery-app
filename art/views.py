@@ -10,45 +10,18 @@ def welcome(request):
     images = Image.objects.all()
     return render(request, 'welcome.html', {"images": images})
 
-# def search_results(request):
-#   if 'art' in request.GET and request.GET["art"]:
-#     search_term=request.GET.get('art')
-#     searched_category=Category.search_category(search_term)    
-#     results=Image.search_image(searched_category)
-#     if results:
-#       message=f"{search_term}"  
-#       title='Results'
-
-#       return render(request,'search.html',{"message":message,"images":results,"title":title})
-
-#     else:
-#       message="You haven't search for a category"  
-#       title='Results'
-#       return render(request, 'search.html',{"message":message,"title":title})
-
 def search_results(request):
 
     if 'image' in request.GET and request.GET["image"]:
         search_term = request.GET.get("image")
-        searched_articles = Image.search_by_title(search_term)
+        searched_title = Image.search_by_title(search_term)
         message = f"{search_term}"
 
-        return render(request, 'search.html',{"message":message,"images": searched_articles})
+        return render(request, 'search.html',{"message":message,"images": searched_title})
 
     else:
         message = "You haven't searched for any image"
         return render(request, 'search.html',{"message":message})
-
-def images_by_location(request, location_name):
-  try:
-    found_location = Location.get_location(location_name)
-    images = Image.get_images_by_location(found_location)
-    title = location_name
-
-  except ObjectDoesNotExist:
-    raise Http404()
-
-  return render(request, 'images.html', {"images":images , "title": title})
 
 def images_by_category(request, category_name):
   try:
@@ -60,4 +33,15 @@ def images_by_category(request, category_name):
     raise Http404()
 
   return render(request, 'category.html',{"images":images, "title":title})
+
+def location(request):
+    if 'location' in request.GET and request.GET["location"]:
+        location = request.GET.get("location")
+        searched_images = Image.filter_by_location(location)
+        message = f"{location}"
+        return render(request,"search.html",{"message":message,"images":searched_images})
+
+    else:
+        message = "select location to filter"
+        return render(request,"search.html",{"message":message})
 

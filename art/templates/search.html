@@ -16,7 +16,8 @@
   {% if images %}
     {% for image in images %}
       <div class="col-sm-6 col-md-3">
-          <h1>{{image.image_name}}</h1>
+        <img src="{{image.image_url.url}}" class="img-fluid img-thumbnail" alt="..." style="width: 450px;">
+        <p>{{image.image_name}}</p>
       </div>
     {% endfor %}
   {% endif %}

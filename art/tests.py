@@ -138,13 +138,13 @@ class ImageTestCase(TestCase):
     #     self.assertEquals(len(results),1)
 
 
-    # def test_search(self):
+    # def test_search_by_title(self):
     #     self.img1.save_image()
     #     self.img2.save_image()
 
-    #     search_term='Oil painting'
-    #     found_category= Category.search_category(search_term)
-    #     results= Image.search_image(found_category)
+    #     search_term='sunset'
+    #     found_title= Image.search_by_title(search_term)
+    #     results= Image.search_image(found_title)
 
     #     self.assertEquals(len(results),1)
 
