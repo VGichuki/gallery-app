@@ -1,24 +1,53 @@
 {% extends 'base.html' %}
+
 {% block content %}
 {{block.super}}
 <h1 class="text-center">Welcome to ZGDX Gallery</h1>
 <div class="container">
+  <div class="card-columns">
   {% for image in images %}
   <div class="row">
       <div class="col-md-6 cold-md-6">
-          ​<div class="thumbnail">
+          ​<div class="thumbnail" data-toggle="modal" data-target="#{{image.id}}">
               <img src="{{image.image_url.url}}" class="img-fluid img-thumbnail" alt="..." style="width: 450px;">
               <div class="card-body">
               <p class="card-title"><b>Name:</b>{{image.image_name}}</b></p>
-              <p class="card-text"><b>Description:</b> {{image.description}}</p>
+              <!-- <p class="card-text"><b>Description:</b> {{image.description}}</p>
               <p><b>Category:</b> {{image.category}}</p>
               <p><b>Location:</b> {{image.location}}</p>
-              <p><b>Posted On:</b> {{image.posted_on}}</p>
-            
+              <p><b>Posted On:</b> {{image.posted_on}}</p> -->
+
+              <div class="modal fade " id="{{image.id}}" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+        <div class="modal-content modalcard">
+            <!-- <div class="modal-header">
+                
+            </div> -->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                <img src="{{image.image_url.url}}" alt="{{image.image_name}" class="img-fluid" width="350">
+            <h5 class=""><b>{{image.image_name.name}}</b></h5>
+            <p class="imgdesc text-center">Description:{{image.description}}</p>
+            <p class="imgcate text-center">Category:{{image.category}}</p>
+            <p class="imgloc text-center">Location:{{image.location}}</p>
+            </div>
+            <div class="modal-footer">
+                <input class="form-control input-lg" type="text"
+                       value="{{image.image_url.url}}" id="{{image.id}}.url">
+                <button class="btn btn-success btn-sm" onclick="copyLink('{{image.id}}.url')">Copy</button>
+                <button type="button" class="btn btn-outline-danger btn-sm" data-dismiss="modal">Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
             </div>
       </div>
-      
+    </div>
   </div>
+</div>
   {%endfor%}
   </div>
   </div>

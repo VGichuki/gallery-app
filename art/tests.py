@@ -127,12 +127,26 @@ class ImageTestCase(TestCase):
             raise AttributeError
         self.assertEquals(len(found),1)
 
+    # def test_get_images_by_location(self):
+    #     self.img1.save_image()
+    #     self.img2.save_image()
+
+    #     search_term= 'Nairobi'
+    #     found_image_location= Location.get_location(search_term)
+    #     results = Image.get_images_by_location(found_image_location)
+
+    #     self.assertEquals(len(results),1)
+
+
     # def test_search(self):
     #     self.img1.save_image()
     #     self.img2.save_image()
 
     #     search_term='Oil painting'
-    #     found_
+    #     found_category= Category.search_category(search_term)
+    #     results= Image.search_image(found_category)
+
+    #     self.assertEquals(len(results),1)
 
 
     
