@@ -12,18 +12,10 @@
               <img src="{{image.image_url.url}}" class="img-fluid img-thumbnail" alt="..." style="width: 450px;">
               <div class="card-body">
               <p class="card-title"><b>Name:</b>{{image.image_name}}</b></p>
-              <!-- <p class="card-text"><b>Description:</b> {{image.description}}</p>
-              <p><b>Category:</b> {{image.category}}</p>
-              <p><b>Location:</b> {{image.location}}</p>
-              <p><b>Posted On:</b> {{image.posted_on}}</p> -->
-
               <div class="modal fade " id="{{image.id}}" tabindex="-1" role="dialog"
      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-md" role="document">
         <div class="modal-content modalcard">
-            <!-- <div class="modal-header">
-                
-            </div> -->
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-8">
@@ -32,6 +24,9 @@
             <p class="imgdesc text-center">Description:{{image.description}}</p>
             <p class="imgcate text-center">Category:{{image.category}}</p>
             <p class="imgloc text-center">Location:{{image.location}}</p>
+            <p class="imgloc text-center">Posted on:{{image.posted_on}}</p>
+            
+
             </div>
             <div class="modal-footer">
                 <input class="form-control input-lg" type="text"
